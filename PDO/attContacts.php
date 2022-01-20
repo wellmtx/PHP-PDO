@@ -7,11 +7,11 @@ function attContacts()
     $ch = curl_init();
     
     curl_setopt_array($ch, array(
-        CURLOPT_URL => "https://v4.chatpro.com.br/chatpro-xbcsytl3hj/api/v1/contacts",
+        CURLOPT_URL => "https://v4.chatpro.com.br/[EndPoint]/api/v1/contacts",
         CURLOPT_RETURNTRANSFER => true ,
         CURLOPT_CUSTOMREQUEST => "GET" ,
         CURLOPT_HTTPHEADER => array (
-        "Authorization: 8r7d2vx43ll3hm9kp07s9812tviyr3",
+        "Authorization: [seuToken]",
         "cache_control: no-cache"
         )
     ));
