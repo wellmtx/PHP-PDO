@@ -9,22 +9,23 @@ $editContact = new contacts();
 $editContact->searchId($userId);
 
 ?>
-<style>
-    
-</style>
+<style> ul, li { list-style: none; } </style>
+
 <center>
-<form action='editData.php' method='POST'>
+<form action='/pdo/editData.php?iduser=<?php echo $userId; ?>' method='POST'>
     <span> DADOS DO CONTATO </span>
     </br>
     </br>
     <li>
-        <span> Id do contato </span>
-        <input type='text' name='iduser' readonly value='<?php echo $editContact->getIdContact() === null ? "'Não encontrado'" : $editContact->getIdContact(); ?>'>
+        <span> Id do contato: </span>
+        <?php echo $editContact->getIdContact() === null ? "<b>Não encontrado</b>" : "<b>".$editContact->getIdContact()."</b>"; ?>
     </li>
+    <br>
     <li>
         <span> Nome do contato: </span>
         <input type="text" name='contactName' value='<?php echo $editContact->getName(); ?>'>
     </li>
+    <br>
     <li>
         <span> JID do contato: </span>
         <input type="text" name='contactJID' readonly value=<?php echo $editContact->getJID(); ?>>
