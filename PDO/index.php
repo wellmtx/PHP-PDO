@@ -3,8 +3,7 @@
 require_once("config.php");
 
 $totalContacts = 25;
-$pag = 1;
-$pc = $pag;
+$pc = 1;
 
 if (isset($_GET['pag']))
 {
