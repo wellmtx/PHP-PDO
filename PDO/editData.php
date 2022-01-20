@@ -2,7 +2,7 @@
 require_once('config.php');
 
 $contactName = $_POST['contactName'];
-$contactId = $_POST['iduser'];
+$contactId = $_GET['iduser'];
 
 function editData($id, $name) 
 {
