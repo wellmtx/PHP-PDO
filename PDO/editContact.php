@@ -9,7 +9,7 @@ $editContact = new contacts();
 $editContact->searchId($userId);
 
 ?>
-<style> ul, li { list-style: none; } </style>
+<style> ul, li { list-style: none; }</style>
 
 <center>
 <form action='/pdo/editData.php?iduser=<?php echo $userId; ?>' method='POST'>
