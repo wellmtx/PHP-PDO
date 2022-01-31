@@ -36,6 +36,27 @@ class contacts
         return $this->name;
     }
 
+    public function addContact($number, $name = '') 
+    {
+        $sql = new sql();
+        $jid = "55".$number."@s.whatsapp.net";
+
+        if (!$this->checkNumberExist($jid)) 
+        {
+
+            $sql->execQuery("INSERT INTO tb_usuarios (Jid, name) VALUES (:JID, :NAME)", array(
+                ':JID' => $jid,
+                ':NAME' => $name
+            ));
+
+            $newContact = $sql->select("SELECT * FROM tb_usuarios WHERE idusuario = LAST_INSERT_ID()");
+
+            $this->setData($newContact[0]);
+
+        }
+
+    }
+
     public function searchId($id) 
     {
         $sql = new sql();
@@ -83,6 +104,11 @@ class contacts
         $exist = $sql->select("SELECT * FROM tb_usuarios WHERE Jid = :JID", array(
             ':JID' => $numberJid
         ));
+
+        if (count($exist) > 0) 
+        {
+            $this->setData($exist[0]);
+        }
 
         return count($exist) > 0 ? true : false;
     }
