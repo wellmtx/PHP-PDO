@@ -54,9 +54,8 @@ $prox = $pc + 1;
 <body>
 <div width="1600"><center>
 
-    <a href=attContacts.php><button> ATUALIZAR LISTA DE CONTATOS </button></a>
-
-    </br></br>
+    <a href=attContacts.php><button> ATUALIZAR LISTA DE CONTATOS </button></a> </br> </br>
+    <form action='addContact.php' method='POST'> <span> Número: </span> <input type='text' name='number'> <span> Nome: </span> <input type='text' name='name'></br></br><button type='submit'> ADICIONAR CONTATO </button> </form>
 
     <table border="1">
         <tr><td><center> ID </center></td> <td><center> JID </center></td> <td><center> NOME </center></td>
@@ -72,12 +71,13 @@ $prox = $pc + 1;
     {
         echo "<a href=?pag=$anterior><button> ANTERIOR </button></a>";
     }
-    echo "||";
+    echo " || ";
     if ($pc < $totalPag) 
     {
         echo "<a href=?pag=$prox><button> PRÓXIMO </button></a>";
-        echo "</br></br>";
     }
+    echo "</br></br>";
+    echo "<b>" . $pc . "</b>";
     
     ?>
 
