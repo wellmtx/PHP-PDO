@@ -157,29 +157,38 @@ else if(isset($_GET['name']) && isset($_GET['number']))
             echo "<a href=/pdo><button> VOLTE AO INICIO </button></a>";
             echo "</center>";
 
-        } else {
+        }   else {
 
-            $addContact->addContact($number, $name);
-
-            echo "<center>";
-
-            if ($addContact->getIdContact() == null) 
+            if($addContact->addContact($number, $name) !== true) 
             {
 
-                echo "<b> Ocorreu algum erro! Tente novamente! </b></br></br>";
-                echo "<a href=/pdo><button> VOLTE AO INICIO </button></a>";
+                echo "<center>";
 
-            } else {
+                if ($addContact->getIdContact() == null) 
+                {
+
+                    echo "<b> Ocorreu algum erro! Tente novamente! </b></br></br>";
+                    echo "<a href=/pdo><button> VOLTE AO INICIO </button></a>";
+
+                } else {
             
-                echo "<b> CONTATO CRIADO COM SUCESSO </b></br></br>";
-                echo "<b> ID: ". $addContact->getIdContact() . "</b></br></br>";
-                echo "<b> Jid: ". $addContact->getJID() . "</b></br></br>";
-                echo "<b> Nome: ". $addContact->getName() . "</b></br></br>";
-                echo "<a href=/pdo><button> VOLTE AO INICIO </button></a>";
+                    echo "<b> CONTATO CRIADO COM SUCESSO </b></br></br>";
+                    echo "<b> ID: ". $addContact->getIdContact() . "</b></br></br>";
+                    echo "<b> Jid: ". $addContact->getJID() . "</b></br></br>";
+                    echo "<b> Nome: ". $addContact->getName() . "</b></br></br>";
+                    echo "<a href=/pdo><button> VOLTE AO INICIO </button></a>";
 
-            }
+                }
     
-            echo "</center>";
+                echo "</center>";
+            } else {
+
+                echo "<center>";
+                echo "<b> CONTATO JÁ EXISTENTE! </b></br></br>";
+                echo "<a href=/pdo><button> VOLTE AO INICIO </button></a>";
+                echo "</center>";
+                
+            }
         }
     }
 
