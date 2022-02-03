@@ -23,6 +23,8 @@ $totalPag = count($allContacts) / $totalContacts;
 $anterior = $pc - 1;
 $prox = $pc + 1;
 
+//////////////////////////////////////////// TABELA CONTATOS ///////////////////////////////////////////////////////////
+
 function createTableContacts($pgContacts) 
 {
     $html = "<tr>";
