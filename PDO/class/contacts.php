@@ -53,6 +53,9 @@ class contacts
 
             $this->setData($newContact[0]);
 
+        } else 
+        {
+            return true;
         }
 
     }
